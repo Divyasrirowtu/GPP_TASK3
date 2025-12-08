@@ -1,0 +1,6 @@
+id,score,name,notes
+1,88.5,Alice,likes apples
+2,92.0,Bob,
+3,77.3,Charlie,enjoys chess
+4,,Diana,null
+5,81.2,,unicode
