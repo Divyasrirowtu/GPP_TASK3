@@ -16,17 +16,8 @@ Then, for each column (repeated num_columns times):
 - uint64 block_offset   (absolute file offset to start of compressed block)
 
 Column block (UNCOMPRESSED) formats:
-- INT32:
-    null_bitmap (ceil(N/8) bytes), followed by N int32 values (little-endian).
-- FLOAT64:
-    null_bitmap, followed by N float64 values.
-- STRING:
-    null_bitmap, offsets array (N+1 uint64 little-endian), followed by concatenated UTF-8 bytes.
+- INT32: null bitmap + N int32 values
+- FLOAT64: null bitmap + N float64 values
+- STRING: null bitmap + offsets array (N+1 uint64) + concatenated UTF-8 bytes
 
-Null bitmap: bit i == 1 => NULL for row i. Bits packed LSB-first in each byte.
-
-Compression: Each column block (the uncompressed bytes above) is compressed using zlib (DEFLATE). The header stores both compressed and uncompressed sizes and the absolute offset to the compressed bytes.
-
-Notes:
-- All integer sizes explicitly typed (uint16, uint64, int32).
-- All offsets are absolute file offsets.
+Compression: Each column block compressed using zlib (DEFLATE)
