@@ -1,0 +1,11 @@
+# Python version requirement
+python>=3.10
+
+# Standard libraries used in the project
+# csv and sys are built-in, no need to install separately
+
+# Optional libraries for testing
+pytest>=7.0.0      # For running unit tests and round-trip tests
+
+# Optional: If you plan to extend for data manipulation
+pandas>=2.0.0      # For CSV/CCF handling (optional)
