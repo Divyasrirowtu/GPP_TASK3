@@ -1,16 +1,16 @@
 # reader.py
-import csv
-
 class CustomReader:
     def __init__(self):
-        pass
+        self.columns = []
+        self.rows = []
 
     def read_all(self, file_path):
-        """Minimal implementation to read CSV-like text for testing"""
+        """Read all rows from a CCF file into a list of dictionaries"""
         rows = []
-        with open(file_path, newline='', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            headers = f.readline().strip().split(",")
+            for line in f:
+                values = line.strip().split(",")
+                row = dict(zip(headers, values))
                 rows.append(row)
         return rows
-
