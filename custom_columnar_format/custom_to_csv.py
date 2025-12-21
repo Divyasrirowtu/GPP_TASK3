@@ -1,5 +1,5 @@
-from reader import CustomReader
 import csv, sys
+from reader import CustomReader
 
 if len(sys.argv) != 3:
     print("Usage: python custom_to_csv.py input.ccf output.csv")

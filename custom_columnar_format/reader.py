@@ -1,16 +1,13 @@
-# reader.py
 class CustomReader:
     def __init__(self):
-        self.columns = []
-        self.rows = []
+        pass  # keep existing init if any
 
-    def read_all(self, file_path):
-        """Read all rows from a CCF file into a list of dictionaries"""
+    def read_all(self, filename):
         rows = []
-        with open(file_path, 'r', encoding='utf-8') as f:
-            headers = f.readline().strip().split(",")
+        with open(filename, 'r', encoding='utf-8') as f:
+            header = f.readline().strip().split(',')
             for line in f:
-                values = line.strip().split(",")
-                row = dict(zip(headers, values))
+                values = line.strip().split(',')
+                row = dict(zip(header, values))
                 rows.append(row)
         return rows
