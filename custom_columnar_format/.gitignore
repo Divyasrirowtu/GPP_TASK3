@@ -1,5 +1,5 @@
 __pycache__/
+*.pyc
 *.ccf
 *.csv
 custom_to_csv_backup.py
-
